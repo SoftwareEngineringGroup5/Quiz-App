@@ -1,24 +1,30 @@
+<!--this is profile page, allow user to change name, icon-->
 <div class = "fullcontainer">
-	   <div class = "hidden-xs">
-		  <button class= "btn btn-default btn-lg no-bg-color"  ng-click = "backToMenu()">
-	      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-	  	</button>
-  	 </div>
+    <!--back button-->
+	  <div class = "hidden-xs">
+		    <button class= "btn btn-default btn-lg no-bg-color"  ng-click = "backToMenu()">
+	         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+	  	  </button>
+  	</div>
+
      <div>
   	<form class = "col-md-5 col-md-offset-3 col-xs-12 form-horizontal bg-info" ng-submit = "confirm()">
-      <button type = "button" class="btn btn-lg col-md-3 visible-xs bg-info"  ng-click = "backToMenu()">
-        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-      </button>
-  		<h3 class = "col-md-12">Your profile: </h3>
-  		<h4 class = "col-md-12">First Name: <input class = "input" type = "text" ng-model = "user.firstname"/></h4>
-  		<h4 class = "col-md-12">Last Name: <input type = "text" ng-model = "user.lastname"/></h4>
-  		<h4 class = "col-md-12">Choose an avatar: </h4>
-    		<div class = "col-md-2 col-xs-3 thumbnail no-bg-color fullcontainer" ng-repeat = "avatar in avatars" height = "100px">
-    			<img ng-src="static/avatars/{{avatar}}.png" width = "100" height = "100" class="img-responsive img-circle" ng-click = "user.avatar = avatar" ng-class = "(user.avatar==avatar)?'chosen':''">
-    		</div>
-      <div class = "col-md-12 col-xs-12 topbotpadding">
-        <button class = "confirm-button col-md-offset-10 col-xs-offset-10" type = "submit" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
-      </div>
+        <!--button show in xs-screen-size-->
+        <button type = "button" class="btn btn-lg col-md-3 visible-xs bg-info"  ng-click = "backToMenu()">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+        </button>
+    		<h3 class = "col-md-12">Your profile: </h3>
+    		<h4 class = "col-md-12">First Name: <input class = "input" type = "text" ng-model = "user.firstname"/></h4>
+    		<h4 class = "col-md-12">Last Name: <input type = "text" ng-model = "user.lastname"/></h4>
+    		<h4 class = "col-md-12">Choose an avatar: </h4>
+        <!--list of avatar-->
+      	<div class = "col-md-2 col-xs-3 thumbnail no-bg-color fullcontainer" ng-repeat = "avatar in avatars" height = "100px">
+      			<img ng-src="static/avatars/{{avatar}}.png" width = "100" height = "100" class="img-responsive img-circle" ng-click = "user.avatar = avatar" ng-class = "(user.avatar==avatar)?'chosen':''">
+      	</div>
+        <!--confirm button-->
+        <div class = "col-md-12 col-xs-12 topbotpadding">
+            <button class = "confirm-button col-md-offset-10 col-xs-offset-10" type = "submit" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+        </div>
   	</form>
   </div>
 </div>

@@ -5,6 +5,10 @@
 .white-text{
 	color: white;
 }
+.full-background{
+	display: block;
+	background-size: 100% 100%;
+}
 .bottom-area{
 	color: white;
 	background-color: #abcdef;
@@ -61,16 +65,19 @@
 	display: flex;
     align-items: center;
 }
+.giganic-text{
+	font-size: 6em;
+}
 .question-result{
 	position: absolute;
 	width: 40%;
 	top: 30%;
 	left: 30%;
-	animation-name: zoom-in;
-	animation-duration: 0.4s;
 	font-size: 6em;
 	text-align: center;
 	color: white;	
+	animation-name: zoom-in;
+	animation-duration: 0.4s;
 }
 .bg-green{
 	background-color: green;

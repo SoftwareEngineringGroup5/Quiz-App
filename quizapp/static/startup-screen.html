@@ -1,53 +1,54 @@
 <!---This is html file for startup-screen directive, allow user answer, view results,...-->
-<div class = "fullscreen startupscreen" style = "display: block;background-size: 100% 100%;" ng-style = "{ 'background-image': 'url(' + 'static/img/'+category+'.jpg'+ ')' }">
+<div class = "fullscreen startupscreen full-background" ng-style= "{ 'background-image': 'url(' + 'static/img/'+category+'.jpg'+ ')' }">
   
   <div class = "question-area" ng-if = "inProcess">
     <div class = "question fullcontainer" ng-if = "isAnswering&&!end">
-      <!--content of question-->
-      <div class = "content text-center" ><h3>{{questions[currentQuestion].content}}</h3></div>
-      <!-- question content-->
-      
-      <div class = "options">
-          <!--single select question-->
-          <div class = "four-quarter fullcontainer" ng-if = "questions[currentQuestion].type==='four-quarter'">
-              <div class = "option" ng-repeat = "option in questions[currentQuestion].options" ><!-- options -->
-                  <input type="radio" id = "{{$index}}" ng-model="$parent.userAnswers[currentQuestion]" ng-value = "$index">
-                  <label for="{{$index}}"><p>{{option}}</p></label>
-              </div>
-          </div>
-          <!--picker type question-->
-          <div class = " col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 fullcontainer" ng-if = "questions[currentQuestion].type=='picker'" ng-init = "userAnswers[currentQuestion]=0">
-              <div style = "font-size:5em;text-align:center;">{{userAnswers[currentQuestion]}}</div>
-              <input type = "range" ng-model="userAnswers[currentQuestion]" min = "{{questions[currentQuestion].min}}" max = "{{questions[currentQuestion].max}}" step ="{{questions[currentQuestion].step}}"  />
-          </div>
-          <!--fill-blank question-->
-          <div class = " col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 fullcontainer center-vertical" ng-if = "questions[currentQuestion].type=='fill-blank'" ng-init="userAnswers[currentQuestion]=''">
-              <h3><input type = "text" ng-model ="userAnswers[currentQuestion]" placeholder="Fill in the blank" maxlength = "10"/></h3>
-          </div>
-          <!--fill-2-blank-->
-          <div class = " col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 center-vertical fullcontainer" ng-if = "questions[currentQuestion].type=='fill-two-blanks'" ng-init="userAnswers[currentQuestion]=[]">
-              <div class = "col-md-12">
-                <h3><input type = "text" ng-model ="userAnswers[currentQuestion][0]" placeholder="Fill in the blank" maxlength = "10"/></h3>
-              <h3><input type = "text" ng-model ="userAnswers[currentQuestion][1]" placeholder="Fill in the blank" maxlength = "10"/></h3>
+        <!--content of question-->
+        <div class = "content text-center" ><h3>{{questions[currentQuestion].content}}</h3></div>
+        <!-- question content-->
+        
+        <div class = "options">
+            <!--single select question-->
+            <div class = "four-quarter fullcontainer" ng-if = "questions[currentQuestion].type==='four-quarter'">
+                <div class = "option" ng-repeat = "option in questions[currentQuestion].options" ><!-- options -->
+                    <input type="radio" id = "{{$index}}" ng-model="$parent.userAnswers[currentQuestion]" ng-value = "$index">
+                    <label for="{{$index}}"><p>{{option}}</p></label>
+                </div>
             </div>
-          </div>
-          <!--true-false question-->
-          <div class = "col-md-12 true-false fullcontainer center-vertical" ng-if = "questions[currentQuestion].type=='true-false'">
-              <button class = " col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 btn btn-default btn-lg" ng-click = "userAnswers[currentQuestion]=true;">TRUE</button>
-              <button class = "col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 btn btn-default btn-lg" ng-click = "userAnswers[currentQuestion]=false;">FALSE</button>
-          </div>
-          <!--check box (multiple-select) type question-->
-          <div class = "col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 checkbox fullcontainer" ng-if = "questions[currentQuestion].type=='multi-select'" ng-init = "userAnswers[currentQuestion]=[];">
-              <h4 ng-repeat = "option in questions[currentQuestion].options" ><!-- options -->
-                  <input type="checkbox" checklist-model="userAnswers[currentQuestion]" checklist-value = "$index+1">{{option}}
-              </h4>
-          </div>
-      </div>
-     
-      <button class = "confirm-button" style = "position:absolute;top: 40%;left: 90%;"type="button" ng-click = "confirmAnswer()" ng-hide="userAnswers[currentQuestion]<0"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
+            <!--picker type question-->
+            <div class = " col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 fullcontainer" ng-if = "questions[currentQuestion].type=='picker'" ng-init = "userAnswers[currentQuestion]=0">
+                <div class = "text-center giganic-text">{{userAnswers[currentQuestion]}}</div>
+                <input type = "range" ng-model="userAnswers[currentQuestion]" min = "{{questions[currentQuestion].min}}" max = "{{questions[currentQuestion].max}}" step ="{{questions[currentQuestion].step}}"  />
+            </div>
+            <!--fill-blank question-->
+            <div class = " col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 fullcontainer center-vertical" ng-if = "questions[currentQuestion].type=='fill-blank'" ng-init="userAnswers[currentQuestion]=''">
+                <h3><input type = "text" ng-model ="userAnswers[currentQuestion]" placeholder="Fill in the blank" maxlength = "10"/></h3>
+            </div>
+            <!--fill-2-blank-->
+            <div class = " col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 center-vertical fullcontainer" ng-if = "questions[currentQuestion].type=='fill-two-blanks'" ng-init="userAnswers[currentQuestion]=[]">
+                <div class = "col-md-12">
+                    <h3><input type = "text" ng-model ="userAnswers[currentQuestion][0]" placeholder="Fill in the blank" maxlength = "10"/></h3>
+                    <h3><input type = "text" ng-model ="userAnswers[currentQuestion][1]" placeholder="Fill in the blank" maxlength = "10"/></h3>
+              </div>
+            </div>
+            <!--true-false question-->
+            <div class = "col-md-12 true-false fullcontainer center-vertical" ng-if = "questions[currentQuestion].type=='true-false'">
+                <button class = " col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 btn btn-default btn-lg" ng-click = "userAnswers[currentQuestion]=true;">TRUE</button>
+                <button class = "col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 btn btn-default btn-lg" ng-click = "userAnswers[currentQuestion]=false;">FALSE</button>
+            </div>
+            <!--check box (multiple-select) type question-->
+            <div class = "col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 checkbox fullcontainer" ng-if = "questions[currentQuestion].type=='multi-select'" ng-init = "userAnswers[currentQuestion]=[];">
+                <h4 ng-repeat = "option in questions[currentQuestion].options" ><!-- options -->
+                    <input type="checkbox" checklist-model="userAnswers[currentQuestion]" checklist-value = "$index+1">{{option}}
+                </h4>
+            </div>
+        </div>
+       <!--confirm button-->
+        <button class = "confirm-button" style = "position:absolute;top: 40%;left: 90%;"type="button" ng-click = "confirmAnswer()" ng-hide="userAnswers[currentQuestion]<0"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
     </div>
+    <!--show score added after answer a question-->
     <div class = "question-result" ng-class = "(results[currentQuestion]=='danger')?'bg-red':'bg-green'" ng-if = "!isAnswering&&!end">
-      <span>+{{addPoint}}</span>
+        <span>+{{addPoint}}</span>
     </div>
     <!---show user's result: correct answer, score -->
     <div class = "final-result fullcontainer" ng-if= "!isAnswering&&end">
@@ -56,56 +57,68 @@
         <h1>{{numberOfRightAnswer+"/10"}}</h1>
         <h2>{{"Your score: "}}</h2>
         <h1>{{userScore}}</h1>
-        <button class = "confirm-button" style = "position:absolute;top:90%;left:75%;" type = "button" ng-click = "showDetailResult()"><span >?</span></button>
-        <button class = "confirm-button" style = "position:absolute;top:90%;left: 90%;" type = "button"><span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click = "resetProcess()"></span></button>
+        <!---->
+        <button class = "confirm-button" style = "position:absolute;top:90%;left:75%;" type = "button" ng-click = "showDetailResult()"><span >?</span></button><!--show more detail-->
+        <button class = "confirm-button" style = "position:absolute;top:90%;left: 90%;" type = "button"><span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click = "resetProcess()"></span></button><!--go to start again-->
     </div>
     <!--show detail result of each question-->
     <div class = "detail-result fullcontainer" ng-if= "isAnswering&&end"> 
+      <!--Title-->
       <div class = "center-vertical" style = "padding-left:3%;height:15%">
-        <h1>Detail</h1>
+         <h1>Detail</h1>
       </div>
+      <!--List of question contents, user answers-->
       <div class = "content-of-details">
-        <div class = "item-detail" ng-repeat = "result in results track by $index">
-          <p>{{($index+1) +". "+ questions[$index].content}}</p>
-          <p style="font-style: italic;">{{getStringAnswer($index)}}
-              <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-if="result=='danger'" style = "color:red;"></span>
-              <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-if="result!='danger'" style = "color:green;"></span>
-          </p>
-          <b>
-            <button class = "no-bg-color" ng-click = "vote(likes,dislikes,questions[$index].id)" ><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" ng-class = "getColorClass(likes,questions[$index].id)"></span></button>
-            <button class = "no-bg-color" ng-click = "vote(dislikes,likes,questions[$index].id)"  ><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true" ng-class = "getColorClass(dislikes,questions[$index].id)"></span></button>
-          </b>
-        </div>
+          <div class = "item-detail" ng-repeat = "result in results track by $index">
+              <p>{{($index+1) +". "+ questions[$index].content}}</p> <!--content-->
+              <p><em>{{getStringAnswer($index)}}</em> <!--user answer-->
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-if="result=='danger'" style = "color:red;"></span><!--wrong answer-->
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-if="result!='danger'" style = "color:green;"></span><!--right answer-->
+              </p>
+
+              <b>
+                <button class = "no-bg-color" ng-click = "vote(likes,dislikes,questions[$index].id)" ><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" ng-class = "getColorClass(likes,questions[$index].id)"></span></button><!--like button-->
+                <button class = "no-bg-color" ng-click = "vote(dislikes,likes,questions[$index].id)"  ><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true" ng-class = "getColorClass(dislikes,questions[$index].id)"></span></button><!--dislike button-->
+              </b>
+          </div>
       </div>
+      <!--button for confirm answer-->
       <button class = "confirm-button" style = "position:absolute;top: 15%;left: 90%;" type = "button"><span class="glyphicon glyphicon-ok" aria-hidden="true" ng-click = "postVote()"></span></button>
     </div>
   </div>
 
+  <!--back button in top left-->
   <button class="btn btn-default btn-lg no-bg-color"  ng-click = "backToMenu()">
       <span class="glyphicon glyphicon-arrow-left white-text" aria-hidden="true"></span>
   </button>
+
   <!--Bottom area to show progress-->
   <div class = "bottom-area">
-    <div ng-if = "!inProcess" class = "startbutton fullcontainer" ng-click = "beginAnswer()">
-        <h1>{{title}}</h1>
-    </div>
-    <div ng-if = "inProcess" class = "process_result fullcontainer">
-        <div class = "col-md-12 col-xs-12 nopadding" style = "height:6%">
-        <progress class = "progress" style = "height:100%;">
-            <bar class = "progress-bar-striped" ng-repeat = "result in results track by $index" value = "10" type = "{{result}}"></bar>
-        </progress></div>
-        <div>
-            <div class="col-md-12 center-vertical" style="height:92%;padding-left:2%; padding-right:2%">
-                <div class = "col-md-2 col-xs-2 topbotpadding center-vertical">
-                   <img ng-src="static/avatars/{{user.avatar}}.png" class="img-responsive">
-                </div>
-                <div class = "col-md-6 col-xs-6">
-                    <div style = "height:50%;"><h4>{{title}}</h4></div>
-                    <div style = "height:50%;"><h4>{{(currentQuestion+1)+"/10"}}</h4></div>
-                </div>
-                <div class = "col-md-4 col-xs-4 text-right"><h1>{{userScore}}</h1></div>
-            </div>
-        </div>
-    </div>  
+      <!--Name of category, click to begin quiz-->
+      <div ng-if = "!inProcess" class = "startbutton fullcontainer" ng-click = "beginAnswer()">
+          <h1>{{title}}</h1>
+      </div>
+      <!--answer process-->
+      <div ng-if = "inProcess" class = "process_result fullcontainer">
+        <!--progess bar, show wrong/right question-->
+          <div class = "col-md-12 col-xs-12 nopadding" style = "height:6%">
+          <progress class = "progress" style = "height:100%;">
+              <bar class = "progress-bar-striped" ng-repeat = "result in results track by $index" value = "10" type = "{{result}}"></bar>
+          </progress></div>
+
+          <div class="col-md-12 center-vertical" style="height:92%;padding-left:2%; padding-right:2%">
+              <!--avatar-->
+              <div class = "col-md-2 col-xs-2 topbotpadding center-vertical">
+                 <img ng-src="static/avatars/{{user.avatar}}.png" class="img-responsive">
+              </div>
+              <!--name of category and curent question-->
+              <div class = "col-md-6 col-xs-6">
+                  <div style = "height:50%;"><h4>{{title}}</h4></div>
+                  <div style = "height:50%;"><h4>{{(currentQuestion+1)+"/10"}}</h4></div>
+              </div>
+              <!--score-->
+              <div class = "col-md-4 col-xs-4 text-right"><h1>{{userScore}}</h1></div>
+          </div>
+      </div>  
   </div>
 </div>

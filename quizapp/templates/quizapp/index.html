@@ -1,21 +1,20 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html ng-app = "quizApp">
-        <title>Quiz App</title>
-        <script type="text/javascript" src="{% static 'js/AngularJS/angular.min.js'%}"></script>
-        <script type="text/javascript" src="{% static 'js/ui-bootstrap-tpls-0.13.4.min.js'%}"></script>
-        <script type="text/javascript" src="{% static 'js/AngularJS/checklist-model.js'%}"></script>
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="{% static 'js/app.js'%}"></script>
+    <title>Quiz App</title>
+    <script type="text/javascript" src="{% static 'js/AngularJS/angular.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/ui-bootstrap-tpls-0.13.4.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/AngularJS/checklist-model.js'%}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/app.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
 		<link href="{% static 'css/effect.css' %}" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/effect.css'%}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/effect.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/startmenu.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/animations.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/leaderboard.css'%}"/>
-		<link rel="stylesheet" type="text/css" href="{% static 'css/hoverEffect.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/backgroundset.css'%}"/>
     </head>
@@ -34,22 +33,23 @@
                  <!--mini-profile bar on top-->
                  <div class = "col-md-12 nopadding profile"><profile-bar></profile-bar></div>
                  <!--categories-->
-                 <div class = "col-md-4 col-xs-6 nopadding">
-                      <menu-item class = "col-md-12 col-xs-12 large-height orange" item = "'General Knowledge'" ></menu-item>
-                      <menu-item class = "col-md-6 col-xs-12 normal-height blue" item = "'Food & Drink'"></menu-item>
-                      <menu-item class = "col-md-6 col-xs-12 normal-height dark" item = "'Music'"></menu-item>
+                 <div class = "col-md-4 col-sm-4 col-xs-6 nopadding">
+                      <menu-item class = "col-md-12 col-sm-12 col-xs-12 large-height orange" item = "'General Knowledge'" ></menu-item>
+                      <menu-item class = "col-md-6 col-sm-6 col-xs-12 normal-height blue" item = "'Food & Drink'"></menu-item>
+                      <menu-item class = "col-md-6 col-sm-6 col-xs-12 normal-height dark" item = "'Music'"></menu-item>
                  </div> 
-                 <div class = "col-md-4 col-xs-6 nopadding">
-                      <menu-item class = "col-md-6 col-xs-12 normal-height green" item = "'Sports'"></menu-item>
-                      <menu-item class = "col-md-6 col-xs-12 normal-height yellow" item = "'Animals'"></menu-item>
-                      <menu-item class = "col-md-12 col-xs-12 large-height red" item = "'Geography'"></menu-item>
+                 <div class = "col-md-4 col-sm-4 col-xs-6 nopadding">
+                      <menu-item class = "col-md-6 col-sm-6 col-xs-12 normal-height green" item = "'Sports'"></menu-item>
+                      <menu-item class = "col-md-6 col-sm-6 col-xs-12 normal-height yellow" item = "'Animals'"></menu-item>
+                      <menu-item class = "col-md-12 col-sm-12 col-xs-12 large-height red" item = "'Geography'"></menu-item>
                  </div> 
-                 <div class = "col-md-4 col-xs-12 nopadding">
-                      <menu-item class = "col-md-12 col-xs-6 normal-height blue" item = "'History'" ></menu-item>
-                      <menu-item class = "col-md-6 col-xs-6 normal-height dark" item = "'Science'"></menu-item>
-                      <menu-item class = "col-md-6 col-xs-6 normal-height red" item = "'Entertainment'"></menu-item>
-                      <menu-item class = "col-md-6 col-xs-6 normal-height purple" item = "'Movies'"></menu-item>
-                      <menu-item class = "col-md-6 col-xs-6 normal-height orange" item = "'Random'"></menu-item>
+                 <div class = "col-md-4 col-sm-4 col-xs-12 nopadding">
+                      <menu-item class = "col-md-12 col-sm-12 col-xs-6 normal-height blue" item = "'History'" ></menu-item>
+                      <menu-item class = "col-md-6 col-sm-6 col-xs-6 normal-height dark" item = "'Science'"></menu-item>
+                      <menu-item class = "col-md-6 col-sm-6 col-xs-6 normal-height red" item = "'Entertainment'"></menu-item>
+                      <menu-item class = "col-md-6 col-sm-6 col-xs-6 normal-height purple" item = "'Movies'"></menu-item>
+                      <menu-item class = "col-md-6 col-sm-6 col-xs-6 normal-height orange" item = "'Random'"></menu-item>
+                      <!--leaderboard, only show in xs-screen as an menu-item-->
                       <div class = "visible-xs col-xs-6 normal-height dark view view-first nopadding" ng-click="changeTo('leaderboard')">
                           <img class = "img-responsive" alt="Image" ng-src="/static/img/championcup.png">
                           <div class = "overlay">   

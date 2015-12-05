@@ -1,23 +1,25 @@
+<!--This is profile bar, its in top of menu page-->
 <div class = "fullcontainer" >
+	<!--user avatar-->
     <div class = "col-md-1 col-sm-1 col-xs-2 topbotpadding fullheight" >  <!-- Space for avatar -->
         <img ng-src = "static/avatars/{{user.avatar}}.png" class="inside-image">
     </div>
-    <div class = "col-md-10 col-sm-10 col-xs-10 fullheight center-vertical">   <!-- User name -->
-       
-      <!-- Split button -->
+    <div class = "col-md-10 col-sm-10 col-xs-10 fullheight center-vertical"> 
+     	 <!-- Split button -->
 		<div class="btn-group">
-		  <button type="button" class="btn btn-danger btn-lg no-bg-color fullheight"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h3>{{user.firstname +' '+ user.lastname+ " "}}<span class="caret"></h3></button>
-		  <button type="button" class="btn btn-danger dropdown-toggle btn-lg no-bg-color">
-		    <span class="sr-only">Toggle Dropdown</span>
-		  </button>
-		  <ul class="dropdown-menu bg-info">
-		    <li><a href="#" ng-click = "changeTo('profile')"><h4>View profile</h4></a></li>
-		    <li><a href="http://127.0.0.1:8000/accounts/password/change/"><h4>Change password</h4></a></li>
-		    <li role="separator" class="divider"></li>
-		    <li><a href="http://127.0.0.1:8000/accounts/logout/"><h4>Log out</h4></a></li>
-		  </ul>
+			 <button type="button" class="btn btn-danger btn-lg no-bg-color fullheight"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h3>{{user.firstname +' '+ user.lastname+ " "}}<span class="caret"></h3></button><!--user name-->
+			<button type="button" class="btn btn-danger dropdown-toggle btn-lg no-bg-color"><!--toggle button-->
+			    	<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu bg-info">
+				    <li><a href="#" ng-click = "changeTo('profile')"><h4>View profile</h4></a></li><!--go to profile-->
+				    <li><a href="http://127.0.0.1:8000/accounts/password/change/"><h4>Change password</h4></a></li><!--change password-->
+				    <li role="separator" class="divider"></li>
+				    <li><a href="http://127.0.0.1:8000/accounts/logout/"><h4>Log out</h4></a></li><!--logout button-->
+			</ul>
 		</div>
 	</div>
+	<!--leaderboard icon, click to view leaderboard-->
     <div class = "col-md-1 col-sm-1 hidden-xs fullheight" ng-click="changeTo('leaderboard')">
        <img alt="leaderboard" src="static/img/championcup.png" class = "inside-image">
     </div>
