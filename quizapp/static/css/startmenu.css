@@ -62,18 +62,21 @@
     align-items: center;
 }
 .question-result{
-	padding-top: 3%;
-	background-color: green;
 	position: absolute;
 	width: 40%;
-	height: 40%;
 	top: 30%;
 	left: 30%;
-	color: white;
-	font-size: 7em;
-	text-align: center;
 	animation-name: zoom-in;
 	animation-duration: 0.4s;
+	font-size: 6em;
+	text-align: center;
+	color: white;	
+}
+.bg-green{
+	background-color: green;
+}
+.bg-red{
+	background-color: #DC143C
 }
 .process_result{
 	background-color: #abcdef;

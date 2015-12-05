@@ -1,6 +1,0 @@
-﻿Khi push file lên github, mọi người cần chú ý:
-1.Chỉ được push những file thuộc phần việc của mình, không push đè lên của người khác.
-2.File push lên không cần phải hoàn chỉnh.
-3.File push lên phải được commit rõ ràng (ví dụ như thêm cái gì, sửa cái gì... ), commit bằng tiếng việt hay tiếng anh đều được.
-4.Về nội dung file, chú thích ngắn gọn những chỗ quan trọng, sao cho người đọc phải hiểu được; đặt tên biến phải rõ nghĩa, hợp lí. tất cả nên viết bằng tiếng anh; file có thể mắc lỗi logic, runtime... nhưng hoàn toàn không được mắc lỗi cú pháp (thiếu tab đóng , thừa thiếu dấu...)
-5.Push file lên github ít nhất 3 lần 1 tuần để mình theo dõi quá trình làm.

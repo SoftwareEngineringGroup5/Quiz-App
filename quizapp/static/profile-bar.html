@@ -1,8 +1,8 @@
 <div class = "fullcontainer" >
-    <div class = "col-md-1 col-xs-2 topbotpadding fullheight" >  <!-- Space for avatar -->
-        <img ng-src = "static/images/{{user.avatar}}.png" class="inside-image">
+    <div class = "col-md-1 col-sm-1 col-xs-2 topbotpadding fullheight" >  <!-- Space for avatar -->
+        <img ng-src = "static/avatars/{{user.avatar}}.png" class="inside-image">
     </div>
-    <div class = "col-md-10 col-xs-10 fullheight center-vertical">   <!-- User name -->
+    <div class = "col-md-10 col-sm-10 col-xs-10 fullheight center-vertical">   <!-- User name -->
        
       <!-- Split button -->
 		<div class="btn-group">
@@ -18,7 +18,7 @@
 		  </ul>
 		</div>
 	</div>
-    <div class = "col-md-1 visible-md visible-lg fullheight" ng-click="changeTo('leaderboard')">
+    <div class = "col-md-1 col-sm-1 hidden-xs fullheight" ng-click="changeTo('leaderboard')">
        <img alt="leaderboard" src="static/img/championcup.png" class = "inside-image">
     </div>
 </div>

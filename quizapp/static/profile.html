@@ -14,7 +14,7 @@
   		<h4 class = "col-md-12">Last Name: <input type = "text" ng-model = "user.lastname"/></h4>
   		<h4 class = "col-md-12">Choose an avatar: </h4>
     		<div class = "col-md-2 col-xs-3 thumbnail no-bg-color fullcontainer" ng-repeat = "avatar in avatars" height = "100px">
-    			<img ng-src="static/images/{{avatar}}.png" width = "100" height = "100" class="img-responsive img-circle" ng-click = "user.avatar = avatar" ng-class = "(user.avatar==avatar)?'chosen':''">
+    			<img ng-src="static/avatars/{{avatar}}.png" width = "100" height = "100" class="img-responsive img-circle" ng-click = "user.avatar = avatar" ng-class = "(user.avatar==avatar)?'chosen':''">
     		</div>
       <div class = "col-md-12 col-xs-12 topbotpadding">
         <button class = "confirm-button col-md-offset-10 col-xs-offset-10" type = "submit" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>

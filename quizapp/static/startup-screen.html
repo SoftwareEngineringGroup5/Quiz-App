@@ -33,15 +33,11 @@
           </div>
           <!--true-false question-->
           <div class = "col-md-12 true-false fullcontainer center-vertical" ng-if = "questions[currentQuestion].type=='true-false'">
-              <button class = " col-md-2 col-md-offset-3 col-xs-3 col-xs-offset-2 btn btn-default btn-lg" ng-click = "userAnswers[currentQuestion]=true;">TRUE</button>
-              <button class = "col-md-2 col-md-offset-2 col-xs-3 col-xs-offset-2 btn btn-default btn-lg" ng-click = "userAnswers[currentQuestion]=false;">FALSE</button>
-          </div>
-          <!--select number question-->
-          <div class = "form-group has-success col-md-6 col-md-offset-3 number fullcontainer center-vertical" ng-if = "questions[currentQuestion].type=='number'">
-              <input class = "input-lg" type = "number" ng-model ="userAnswers[currentQuestion]" min = "{{questions[currentQuestion].min}}" max = "{{questions[currentQuestion].max}}" />
+              <button class = " col-md-4 col-md-offset-1 col-xs-4 col-xs-offset-1 btn btn-default btn-lg" ng-click = "userAnswers[currentQuestion]=true;">TRUE</button>
+              <button class = "col-md-4 col-md-offset-2 col-xs-4 col-xs-offset-2 btn btn-default btn-lg" ng-click = "userAnswers[currentQuestion]=false;">FALSE</button>
           </div>
           <!--check box (multiple-select) type question-->
-          <div class = " col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 checkbox fullcontainer" ng-if = "questions[currentQuestion].type=='multi-select'" ng-init = "userAnswers[currentQuestion]=[];">
+          <div class = "col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1 checkbox fullcontainer" ng-if = "questions[currentQuestion].type=='multi-select'" ng-init = "userAnswers[currentQuestion]=[];">
               <h4 ng-repeat = "option in questions[currentQuestion].options" ><!-- options -->
                   <input type="checkbox" checklist-model="userAnswers[currentQuestion]" checklist-value = "$index+1">{{option}}
               </h4>
@@ -50,8 +46,8 @@
      
       <button class = "confirm-button" style = "position:absolute;top: 40%;left: 90%;"type="button" ng-click = "confirmAnswer()" ng-hide="userAnswers[currentQuestion]<0"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>  
     </div>
-    <div class = "question-result text-center" ng-if = "!isAnswering&&!end">
-      <p>+{{addPoint}}</p>
+    <div class = "question-result" ng-class = "(results[currentQuestion]=='danger')?'bg-red':'bg-green'" ng-if = "!isAnswering&&!end">
+      <span>+{{addPoint}}</span>
     </div>
     <!---show user's result: correct answer, score -->
     <div class = "final-result fullcontainer" ng-if= "!isAnswering&&end">
@@ -71,7 +67,7 @@
       <div class = "content-of-details">
         <div class = "item-detail" ng-repeat = "result in results track by $index">
           <p>{{($index+1) +". "+ questions[$index].content}}</p>
-          <p style="font-style: italic;">{{questions[$index].options[userAnswers[$index]]}}
+          <p style="font-style: italic;">{{getStringAnswer($index)}}
               <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-if="result=='danger'" style = "color:red;"></span>
               <span class="glyphicon glyphicon-ok" aria-hidden="true" ng-if="result!='danger'" style = "color:green;"></span>
           </p>
@@ -100,8 +96,8 @@
         </progress></div>
         <div>
             <div class="col-md-12 center-vertical" style="height:92%;padding-left:2%; padding-right:2%">
-                <div class = "col-md-2 col-xs-2 topbotpadding center-vetical">
-                   <img ng-src="static/images/{{user.avatar}}.png" class="img-responsive">
+                <div class = "col-md-2 col-xs-2 topbotpadding center-vertical">
+                   <img ng-src="static/avatars/{{user.avatar}}.png" class="img-responsive">
                 </div>
                 <div class = "col-md-6 col-xs-6">
                     <div style = "height:50%;"><h4>{{title}}</h4></div>
