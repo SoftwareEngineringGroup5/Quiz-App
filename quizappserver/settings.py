@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'quizapp',
-    #'social_auth',
+    'social_auth',
     'registration',
 )
 
@@ -101,12 +101,13 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.OpenIDBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
 LOGIN_URL = '/login-form/'
 LOGIN_REDIRECT_URL = '/logged-in/'
 LOGIN_ERROR_URL = '/login-error/'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/another-login-url/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/new-users-redirect-url/'
-SOCIAL_AUTH_NEW_ASSOCIATION_REDIRECT_URL = '/new-association-redirect-url/'
+SOCIAL_AUTH_NEW_ASSOCIATION_REDIRECT_URL = '/'
 SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = '/account-disconnected-redirect-url/'
 SOCIAL_AUTH_BACKEND_ERROR_URL = '/new-error-url/'
 SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
@@ -144,7 +145,7 @@ SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 40
 SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 40
 SOCIAL_AUTH_SLUGIFY_USERNAMES = True
 SOCIAL_AUTH_SANITIZE_REDIRECTS = False
-SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
 SOCIAL_AUTH_URLOPEN_TIMEOUT = 30
 TEMPLATE_CONTEXT_PROCESSORS = (
     'social_auth.context_processors.social_auth_by_name_backends',
